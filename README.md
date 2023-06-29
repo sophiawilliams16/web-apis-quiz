@@ -1,7 +1,7 @@
 # web-apis-quiz
 
 ## Description 
-This project contains a 5 question quiz regarding Web APIs to help enrich my and my classmate's knowledge. This app runs in the browser and features dynamically updated HTML and CSS powered by JavaScript code. It has a clean and polished, responsive user interface that adapts to multiple screen sizes. 
+This project contains a five question quiz on Web API topics to help solidify my and my classmate's knowledge of this module. This app runs in the browser and features dynamically updated HTML and CSS powered by JavaScript code. It has a clean and polished, responsive user interface that adapts to multiple screen sizes. 
 
 ## Table of Contents 
 - [Installation](#installation)
@@ -15,7 +15,7 @@ To install the project, download the files from my Github repository here: https
 and open the project in VS Code.
 
 ## Usage 
-To visit my site, click here: https://sophiawilliams16.github.io/Random-password-generator/ 
+To visit my site, click here: 
 
 Click the start button to begin the game. Choose the correct answer out of the multiple choice and the next question will appear. Continue through the game to see your score. When all questions are answered, or the timer reaches 0 the game is over. You can save your initials and your score. 
 
