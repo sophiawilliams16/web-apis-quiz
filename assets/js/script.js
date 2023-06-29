@@ -3,6 +3,7 @@ var timerEl = document.querySelector('#timer');
 var startButton = document.querySelector('.start-button');
 var questionDisplay = document.querySelector('.question');
 var answersDisplay = document.querySelector('.answers');
+var timeLeft = 60;
 
 // Hold each question in an array 
 var quiz = [{
@@ -23,7 +24,7 @@ var quiz = [{
 {
     ques:'String values must be enclosed within __ when being assigned to variables', 
     choices: ['commas', 'curly brackets', 'quotes', 'parentheses'],
-    correctAnswer: ''
+    correctAnswer: 'quotes'
 },
 {
     ques: 'A very useful tool during development and debugging used to print content to the debugger:', 
@@ -45,7 +46,7 @@ var questionIndex = 0;
         // Display question 
         questionDisplay.textContent = quiz[questionIndex].ques;
         // Display all four answer choices 
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 4; i++) {
             answersDisplay.innerHTML += `<button class="answer-buttons">${quiz[questionIndex].choices[i]}</button>`
         }
         // When answer button is clicked, log choice to the console
@@ -57,10 +58,12 @@ var questionIndex = 0;
                     console.log('Correct');
                 } else {
                     console.log('Incorrect');
+                    // Subtract time from countdown if incorrect answer  
+                    timeLeft--;
                 }
                  // Once question is answered, display next question 
-                questionIndex++;
-                displayNextQuestion();
+                 questionIndex++;
+                 displayNextQuestion();
             });
         }
     };
@@ -68,8 +71,7 @@ var questionIndex = 0;
 // Start timer and update count on page 
 function timer(event) {
     // Prevent default action 
-    event.preventDefault();
-    var timeLeft = 60;
+    //event.preventDefault();
     
     var timeInterval = setInterval(function () {
         // As long as the `timeLeft` is greater than 1
@@ -81,23 +83,15 @@ function timer(event) {
         } else {
           // Once `timeLeft` gets to 0, set `timerEl` to an empty string
           timerEl.textContent = '';
+          // When all questions are answered, or timer reaches 0, game is over 
+            if (questionIndex > quiz.lenth - 1 || timeLeft === 0) {
+             console.log('All done');
+             }
           // Use `clearInterval()` to stop the timer
           clearInterval(timeInterval);
         }
       }, 1000);
 };
-
-// When question is answered incorrectly, time is subtracted from clock 
-function incorrectAnswer(){
-    if (answers[i] !== answers[0]) {
-        timeLeft--;
-    }
-};
-
-// When all questions are answered, or timer reaches 0, game is over 
-function gameOver(){
-    // if ()
-}
 
 // Save initials and score 
 function saveScore(){
