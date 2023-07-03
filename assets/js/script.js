@@ -3,7 +3,9 @@ var timerEl = document.querySelector('#timer');
 var startButton = document.querySelector('.start-button');
 var questionDisplay = document.querySelector('.question');
 var answersDisplay = document.querySelector('.answers');
-var timeLeft = 60;
+var highscoreBtn = document.querySelector('.highscore-button');
+var timeLeft = 10;
+var score = 0;
 
 // Hold each question in an array 
 var quiz = [{
@@ -54,16 +56,22 @@ var questionIndex = 0;
         for (let i = 0; i < 4; i++) {
             answerButtons[i].addEventListener('click',function(event){
                 console.log(event.target.textContent);
+                // If answer is correct, log Correct & increase score 
                 if (quiz[questionIndex].correctAnswer === event.target.textContent) {
                     console.log('Correct');
+                    score ++;
+                // If answer is incorrect, subtract from timer & log Incorrect 
                 } else {
                     console.log('Incorrect');
-                    // Subtract time from countdown if incorrect answer  
                     timeLeft--;
                 }
                  // Once question is answered, display next question 
                  questionIndex++;
                  displayNextQuestion();
+                 // Remove the event listener after user selects an answer
+                answerButtons.forEach(function (button) {
+                    button.removeEventListener('click', displayNextQuestion);
+                });
             });
         }
     };
@@ -83,19 +91,48 @@ function timer(event) {
         } else {
           // Once `timeLeft` gets to 0, set `timerEl` to an empty string
           timerEl.textContent = '';
-          // When all questions are answered, or timer reaches 0, game is over 
-            if (questionIndex > quiz.lenth - 1 || timeLeft === 0) {
-             console.log('All done');
+          // When all questions are answered, or timer reaches 0, stop the timer, display game over, and display score 
+          // !! Game Over displaying when timer 0, but not when all questions answered !!
+            if (questionIndex > quiz.length - 1|| timeLeft === 0) {
+            // Use `clearInterval()` to stop the timer
+            clearInterval(timeInterval);
+
+             var gameOver = document.createElement('div');
+             gameOver.textContent = "Game Over";
+             document.body.appendChild(gameOver);
+
+             var displayScore = document.createElement('div');
+             displayScore.textContent = "Score: " + score;
+             gameOver.appendChild(displayScore);
              }
-          // Use `clearInterval()` to stop the timer
-          clearInterval(timeInterval);
         }
       }, 1000);
 };
 
-// Save initials and score 
-function saveScore(){
+// Use local storage to save initials and score 
+highscoreBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    // Create prompt and text box for user initials 
+    var initials = document.querySelector('.initals');
+
+        // Create elements for prompt and input box 
+        // Q: does it all have to be within the event listener so that the initials prompt only pops up when game is over? 
+        var promptInitials = document.createElement('label');
+        var enterInitials = document.createElement('input');
+        // Put the text inside the elements 
+        promptInitials.textContent = "Enter your initals: ";
+        enterInitials.setAttribute(type, Text);
+        // Append them to the initials div 
+        initials.appendChild(promptInitials);
+        initials.appendChild(enterInitials);
+
+    // Add initials to local storage 
+   
+    // Display initials on page 
+
 }
+)
 
 
 function init(){};

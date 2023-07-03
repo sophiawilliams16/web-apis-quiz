@@ -15,7 +15,7 @@ To install the project, download the files from my Github repository here: https
 and open the project in VS Code.
 
 ## Usage 
-To visit my site, click here: 
+To visit the live site, click here: https://sophiawilliams16.github.io/web-apis-quiz/ 
 
 Click the start button to begin the game. Choose the correct answer out of the multiple choice and the next question will appear. Continue through the game to see your score. When all questions are answered, or the timer reaches 0 the game is over. You can save your initials and your score. 
 
@@ -25,6 +25,9 @@ Click the start button to begin the game. Choose the correct answer out of the m
 ## Credits 
 1. For While Loops: https://www.w3schools.com/js/js_loop_while.asp
 2. Displaying one quiz item at a time: https://stackoverflow.com/questions/43502831/displaying-one-quiz-item-at-a-time
+3. Remove event listener https://www.smashingmagazine.com/2013/11/an-introduction-to-dom-events/ 
+4. Used Activity 22 in WebAPIs classwork as a model for how to use local storage to prompt and save user initials 
+
 
 
 
