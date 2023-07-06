@@ -28,6 +28,11 @@ Click the start button to begin the game. Choose the correct answer out of the m
 3. Remove event listener https://www.smashingmagazine.com/2013/11/an-introduction-to-dom-events/ 
 4. Used Activity 22 in WebAPIs classwork as a model for how to use local storage to prompt and save user initials 
 
+5. Converting highscore objects into arrays https://www.freecodecamp.org/news/how-to-iterate-over-objects-in-javascript/ 
+6. Storing/Retrieving with Local Storage https://blog.logrocket.com/storing-retrieving-javascript-objects-localstorage/
+7. Adding value from input box to an array https://stackoverflow.com/questions/47078498/javascript-add-value-from-input-box-to-array 
+8. Tutoring Sessions with Dru Sanchez 
+
 
 
 
